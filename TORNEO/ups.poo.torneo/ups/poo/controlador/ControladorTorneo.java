@@ -66,6 +66,7 @@ public class ControladorTorneo {
 
 vista.mostrarMensaje("¿Cuántos equipos desea registrar? (Deben ser 2, 4, 8 o 16): ");
             
+// Se valida para que la entrada que se ingresara sea un numero entero valido
             java.util.Scanner lector = new java.util.Scanner(System.in);
             while (!lector.hasNextInt()) {
                 vista.mostrarError("Por favor ingrese un número válido.");
@@ -73,6 +74,12 @@ vista.mostrarMensaje("¿Cuántos equipos desea registrar? (Deben ser 2, 4, 8 o 1
                 vista.mostrarMensaje("¿Cuántos equipos desea registrar?: ");
             }
             int total = lector.nextInt(); 
+            
+         // Se implemento esta estructura para evitar que se pida el nombre de equipo si el numero no es un entero valido
+            if (total != 2 && total != 4 && total != 8 && total != 16) {
+                throw new NumeroEquiposInvalidosException("El número de equipos (" + total + ") no es válido para un torneo de eliminación directa. Deben ser 2, 4, 8 o 16.");
+            }
+            
             
             // Se definio un ciclo para solicitar y agregar cada equipo
             for (int i = 1; i <= total; i++) {
