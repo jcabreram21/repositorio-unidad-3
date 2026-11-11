@@ -74,15 +74,13 @@ vista.mostrarMensaje("¿Cuántos equipos desea registrar? (Deben ser 2, 4, 8 o 1
             }
             int total = lector.nextInt(); 
             
+            // Se definio un ciclo para solicitar y agregar cada equipo
             for (int i = 1; i <= total; i++) {
                 String nombre = vista.solicitarNombreEquipo(i);
                 torneo.agregarEquipo(new Equipos(nombre));
             }
               
-            // Se valida el número de equipos mediante el manejo de excepciones
-          
-        
-              
+      
          // Se valida el número de equipos mediante el manejo de excepciones
             torneo.validarNumeroEquipos();
             vista.mostrarMensaje("Equipos registrados correctamente");
